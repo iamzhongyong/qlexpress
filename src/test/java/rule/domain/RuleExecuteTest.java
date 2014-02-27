@@ -14,7 +14,7 @@ public class RuleExecuteTest {
 	// 做一些初始化的操作，添加规则解析的函数
 	public void init() throws Exception {
 		runner.addOperatorWithAlias("而且", "and", null);
-		runner.addFunctionOfClassMethod("userTagJudge",
+		runner.addFunctionOfClassMethod("用户类型判断",
 				Function.class.getName(), "userTagJudge", new String[] {
 						UserDO.class.getName(), "int" }, "你不是三星卖家");
 
@@ -22,8 +22,8 @@ public class RuleExecuteTest {
 				Function.class.getName(), "hasOrderGoods", new String[] {
 						UserDO.class.getName(), "long" }, "你没有开通淘宝店铺");
 
-		runner.addMacro("三星卖家", "userTagJudge(userInfo,3)");// 3表示三星卖家的标志位
-		runner.addMacro("苹果卖家", "userTagJudge(userInfo,5)");// 5表示苹果卖家的标志位
+		runner.addMacro("三星卖家", "用户类型判断(userInfo,3)");// 3表示三星卖家的标志位
+		runner.addMacro("苹果卖家", "用户类型判断(userInfo,5)");// 5表示苹果卖家的标志位
 		runner.addMacro("已经开店", "hasOrderGoods(userInfo,100)");// 100表示旺铺商品的ID
 	}
 
